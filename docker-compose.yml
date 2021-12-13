@@ -1,0 +1,56 @@
+version: '3.7'
+
+services:
+  user-proxy:
+    build:
+      context: ./user-proxy
+      dockerfile: Dockerfile
+    image: user-proxy
+    container_name: user-proxy
+    command: npm run dev
+    volumes:
+      - ./user-proxy/:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "4001:4001"
+    depends_on:
+      - mongo
+    env_file: ./user-proxy/.env
+    environment:
+      - NODE_ENV=development
+    networks:
+      - app-network
+  mongo:
+    image: mongo
+    volumes:
+      - data-volume:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+  client:
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile
+    image: front-end
+    container_name: front-end
+    command: npm start
+    volumes:
+      - ./front-end/:/usr/app
+      - /usr/app/node_modules
+    depends_on:
+      - user-proxy
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+networks:
+    app-network:
+        driver: bridge
+
+volumes:
+    data-volume:
+    node_modules:
+    web-root:
+      driver: local
