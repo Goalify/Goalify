@@ -29,7 +29,7 @@ The app allows users to stay focused on the most critical aspects of their goals
 We first worked on the middleware as it was the most important part and we needed to finalize it to understand how the frontend and the backend will connect to it.
 After mostly finishing the middleware, we split into two groups, one group implemented the frontend and another group implemented the backend. During this stage we
 also did some small edits to middleware. After finishing, frontend, middleware, backend, and the database services that they used we started working on dockerizing 
-the whole app. After finishing the dockerizing some bugs came up that we spent some time to make sure everthing is working andto create the demo.
+the whole app. After finishing the dockerizing some bugs came up that we spent some time to make sure everything is working and to create the demo.
 
 <a name="explain"></a>
 ## 4. Explaination of Solution
@@ -51,7 +51,7 @@ After all of the user authentications are handled by the middleware, the valid r
 
 We have decided to use Flask as the main framework for the core server because of its flexibility and the compatibility it embraces with the latest technologies. Moreover, it is easy and highly scalable on simple projects. Principles such as KISS and SOLID were followed during the development to make the process of debugging and adding new features simpler and more efficient. The core server is connected to a MySQL database, which stores all data except for the users’ credentials. MySQL was selected as it is secure, flexible, and easy to set up. 
 
-Showing how we applied SOLID to our front-end, we only let our classes have a single responsibilty. For example class `addGoalModal` is only resposible for adding a new goal. Class `DbClickField` only shows some text that can be edited by pressing twice on the text, and so on. We followed Liskov substitution principle by using typescript since it can easily swap components if they share the same contract. We followed interface segregation principle by having multiple interfaces (e.g. `goal`, `milestone`) instead of designing a single interface to substitute them all. We followed dependency inversion principle by making sure that child classes depended on abstraction from parent classes, for example the `GoalsList` sends functions to the class `GoalItem` and these functions will be used by the child class to edit the goal. `GoalItem` doesn't depend on the implementation of the funtions from `GoalsList`. Those functions can be edited without affecting the child class.
+Showing how we applied SOLID to our front-end, we only let our classes have a single responsibility. For example class `addGoalModal` is only responsible for adding a new goal. Class `DbClickField` only shows some text that can be edited by pressing twice on the text, and so on. We followed Liskov substitution principle by using typescript since it can easily swap components if they share the same contract. We followed interface segregation principle by having multiple interfaces (e.g. `goal`, `milestone`) instead of designing a single interface to substitute them all. We followed dependency inversion principle by making sure that child classes depended on abstraction from parent classes, for example the `GoalsList` sends functions to the class `GoalItem` and these functions will be used by the child class to edit the goal. `GoalItem` doesn't depend on the implementation of the functions from `GoalsList`. Those functions can be edited without affecting the child class.
 
 We followed KISS principle by not over-engineering anything and using the simplest methods to achieve objectives. We don't for example use any advanced techniques in react in our front-end such as Compound Components, Props Getters, and State Reducer.
 
@@ -68,15 +68,19 @@ Front-End Class Diagram:
 <a name="Difficulties"></a>
 ## 5. Difficulties
 We had three main problems during development. First problem was the difficulty connecting docker containers with each other. We were using `localhost` as the DNS names in some
-cases and it tooks us some time to realise that docker changes the DNS names of the services from localhost to their name in the docker-compose file.
+cases and it took us some time to realise that docker changes the DNS names of the services from localhost to their name in the docker-compose file.
 After changing the DNS name the services started "seeing" each other.
 
 The second difficulty is that in the machine that we were using to develop our middleware, strange problems were happening and the middleware would fail for no reason.
-It turned out that some old configurations were cached by the machine and was interfereing with our set up. Luckly, after clearing the cache everything worked out.
+It turned out that some old configurations were cached by the machine and was interfering with our set up. Luckily, after clearing the cache everything worked out.
 
 The last problem was the development of the app on different machines with different OSs and configuration which caused a lot of compatibility issues during development. We were able to sort everything out eventually.
 
 
 <a name="con"></a>
 ## 6. Conclusion
+
+
+<a name="demo"></a>
+## 7. Demo
 
