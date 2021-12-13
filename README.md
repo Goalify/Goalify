@@ -90,4 +90,5 @@ We reached the conclusion that the development process was way harder than we th
 <a name="demo"></a>
 ## 7. Demo
 Repo: https://github.com/Goalify/Goalify
+
 Video: https://youtu.be/GQa4DukoUQc
