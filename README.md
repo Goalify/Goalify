@@ -1,6 +1,6 @@
 # Goalify
 
-BS19-DS-01.
+_BS19-DS-01._
 
 Hasan Khadra, Mahmood Darwish, Mohammad Dwik, Mohammad Shahin.
 
@@ -90,3 +90,4 @@ We reached the conclusion that the development process was way harder than we th
 <a name="demo"></a>
 ## 7. Demo
 Repo: https://github.com/Goalify/Goalify
+Video: https://youtu.be/GQa4DukoUQc
