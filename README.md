@@ -65,7 +65,7 @@ Front-End Class Diagram:
 ![alt text](https://github.com/Goalify/front-end/blob/main/classdiagramfrontend.jpg?raw=true)
 
 
-<a name="Difficulties"></a>
+<a name="diff"></a>
 ## 5. Difficulties
 We had three main problems during development. First problem was the difficulty connecting docker containers with each other. We were using `localhost` as the DNS names in some
 cases and it took us some time to realise that docker changes the DNS names of the services from localhost to their name in the docker-compose file.
