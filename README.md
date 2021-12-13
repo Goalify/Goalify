@@ -1,5 +1,8 @@
 # Goalify
 
+BS19-DS-01.
+Hasan Khadra, Mahmood Darwish, Mohammad Dwik, Mohammad Shahin.
+
 ## Table of Contents
 1. [ Introdution ](#intro)
 2. [ Goals and Objectives ](#goals)
@@ -79,8 +82,10 @@ The last problem was the development of the app on different machines with diffe
 
 <a name="con"></a>
 ## 6. Conclusion
+It is surprising to us how difficult the development process is. Some things that we thought wouldn’t take much time and were minor milestones were actually very major details in the project. It is also not easy to coordinate efforts between groups of people even if the number of people is small. We learnt a lot about ReactJs, typescript and docker. It was also surprising to us, that the dockerizing process wasn’t trivial as we thought since some things still needed ironing out late in the development process. 
 
+We reached the conclusion that the development process was way harder than we thought and that even a small application took us a lot of time to develop and that without having management and budget dictating the choices we had to make. This project has changed our view about the development process.
 
 <a name="demo"></a>
 ## 7. Demo
-
+Repo: https://github.com/Goalify/Goalify
