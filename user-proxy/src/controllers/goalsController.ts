@@ -15,11 +15,32 @@ export const getGoals = async (req: express.Request, res: express.Response) => {
     const decoded = jwt.verify(token, config.TOKEN_KEY) as User;
 
 
-    axios.post(`http://localhost:${config.BACKEND_PORT}/get-goals`, JSON.stringify({
-            user_id: decoded.user_id
-        }))
-        .then((data) => res.status(200).json(data));
-    res.status(400).send("invalid token");
+    res.status(200).json({
+       list:[
+         {
+            id: "1",
+	    state: "InProgress",
+	    name: "Presentation",
+	    description: "this is the description",
+	    milestones: [],
+	    published: true,
+	    deadline: "12/Sep",
+	    dateCreated: "10/9/2021",
+	    dateFinished: null
+         }, 
+         {
+            id: "2",
+	    state: "Done",
+	    name: "Finish SSAD project",
+	    description: "description here",
+	    milestones: [],
+	    published: false,
+	    deadline: "24/Sep",
+	    dateCreated: "10/7/2021",
+	    dateFinished: "10/9/2021"
+         }
+       ]
+    })
   } catch (err) {
     // tslint:disable-next-line:no-console
     console.log(err);

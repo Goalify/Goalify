@@ -5,6 +5,7 @@ services:
     build:
       context: ./user-proxy
       dockerfile: Dockerfile
+    restart: always
     image: user-proxy
     container_name: user-proxy
     command: npm run dev
@@ -28,6 +29,7 @@ services:
       - "27017:27017"
     networks:
       - app-network
+      
   client:
     build:
       context: ./front-end
@@ -42,6 +44,30 @@ services:
       - user-proxy
     ports:
       - "3000:3000"
+    networks:
+      - app-network
+  
+  mysql-db:
+    build:
+      context: ./core-server/mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: 'goalify'
+      MYSQL_USER: 'dev'
+      MYSQL_PASSWORD: '12345'
+      MYSQL_ROOT_PASSWORD: '12345'
+    networks:
+      - app-network
+
+  flask-app:
+    build: ./core-server/flask
+    restart: always
+    command: python app.py
+    depends_on:
+      - mysql-db
+    ports:
+      - "3001:3001"
     networks:
       - app-network
 

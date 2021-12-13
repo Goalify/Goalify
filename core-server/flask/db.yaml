@@ -1,0 +1,4 @@
+mysql_host: 'mysql-db'
+mysql_db: 'goalify'
+mysql_user: 'dev'
+mysql_password: '12345'
